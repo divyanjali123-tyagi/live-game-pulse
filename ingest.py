@@ -1,8 +1,8 @@
 import requests
 import json
+import os
 from datetime import datetime
 
-# Games we're tracking: name -> Steam App ID
 GAMES = {
     "Counter-Strike 2": 730,
     "Dota 2": 570,
@@ -19,9 +19,11 @@ def get_player_count(app_id):
     return data["response"]["player_count"]
 
 def main():
-    today = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    results = []
+    now = datetime.now()
+    date_str = now.strftime("%Y-%m-%d")
+    time_str = now.strftime("%Y-%m-%d %H:%M:%S")
 
+    results = []
     for name, app_id in GAMES.items():
         count = get_player_count(app_id)
         print(f"{name}: {count} players online")
@@ -29,14 +31,18 @@ def main():
             "game": name,
             "app_id": app_id,
             "player_count": count,
-            "timestamp": today
+            "timestamp": time_str
         })
 
-    # Save to a JSON file
-    with open("data.json", "w") as f:
+    # Make a folder called "data" if it doesn't exist yet
+    os.makedirs("data", exist_ok=True)
+
+    # Save today's snapshot as its own file, e.g. data/2026-07-08.json
+    filename = f"data/{date_str}.json"
+    with open(filename, "w") as f:
         json.dump(results, f, indent=2)
 
-    print("\nSaved results to data.json")
+    print(f"\nSaved results to {filename}")
 
 if __name__ == "__main__":
     main()
