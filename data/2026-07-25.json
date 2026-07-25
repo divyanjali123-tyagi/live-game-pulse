@@ -1,0 +1,32 @@
+[
+  {
+    "game": "Counter-Strike 2",
+    "app_id": 730,
+    "player_count": 755712,
+    "timestamp": "2026-07-25 07:54:52"
+  },
+  {
+    "game": "Dota 2",
+    "app_id": 570,
+    "player_count": 535770,
+    "timestamp": "2026-07-25 07:54:52"
+  },
+  {
+    "game": "PUBG",
+    "app_id": 578080,
+    "player_count": 497773,
+    "timestamp": "2026-07-25 07:54:52"
+  },
+  {
+    "game": "Apex Legends",
+    "app_id": 1172470,
+    "player_count": 132648,
+    "timestamp": "2026-07-25 07:54:52"
+  },
+  {
+    "game": "GTA V",
+    "app_id": 271590,
+    "player_count": 60695,
+    "timestamp": "2026-07-25 07:54:52"
+  }
+]
